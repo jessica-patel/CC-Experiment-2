@@ -29,7 +29,16 @@
             <a-light type="point" intensity="8" position="0 5 -5" distance="20" decay="2"></a-light>
 
             <!-- Object 1 with Hiro marker -->
-            <a-marker preset="hiro">
+            <a-marker 
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="custom_markers/marker.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                custom-marker
+            >
                 <a-entity 
                     gesture-handler
                     gltf-model="https://cdn.glitch.global/03465d97-4e4d-4897-b8ce-06a67f9b63d2/gameready_gameboy_asset.glb?v=1698092177756"
@@ -52,6 +61,25 @@
             <a-entity camera></a-entity>
 
         </a-scene>
-    
+        
+        <script>
+            // Register a custom A-Frame component to handle marker detection
+            AFRAME.registerComponent('custom-marker', {
+              init: function () {
+                var el = this.el;
+                // This function will be called when the marker is found.
+                el.addEventListener('markerFound', function () {
+                  console.log('Custom marker found!');
+                  // Perform actions or animations here
+                });
+      
+                // This function will be called when the marker is lost.
+                el.addEventListener('markerLost', function () {
+                  console.log('Custom marker lost!');
+                  // Handle marker lost event
+                });
+              }
+            });
+          </script>
     </body>
 </html>
