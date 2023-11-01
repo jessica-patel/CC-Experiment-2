@@ -9,47 +9,51 @@
         <!-- Additional A-Frame components for gesture controls -->
         <script src="https://unpkg.com/aframe-gesture-detector"></script>
 
+        <!-- A-Frame Animation Mixer Component -->
+        <script src="https://unpkg.com/aframe-animation-mixer-component@3.0.1/dist/aframe-animation-mixer-component.min.js"></script>
+
         <!-- p5.js library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
         <meta charset="utf-8" />
     </head>
   
-    <body style="margin: 0; overflow: hidden;">
+    <body style="margin: 0; overflow: hidden;"> <!-- hides overflowing content -->
 
-        <div id="p5_container"></div>
+        <!-- <div id="p5_container"></div> -->
 
-        <div id="ar_container">
+        <!-- <div id="ar_container"> -->
             <a-scene 
                 embedded 
                 arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" 
                 gesture-detector
             >
                 <!-- Lights to help show material for 3D models -->
-                <a-light type="ambient" color="#fff"></a-light>
+                <a-light type="ambient" color="#ccc"></a-light>
                 <a-light type="directional" intensity="8" position="2 4 -3"></a-light>
-                <a-light type="point" intensity="8" position="0 5 -5" distance="20" decay="2"></a-light>
+                <a-light type="point" intensity="2" position="0 5 -5" distance="20" decay="2"></a-light>
 
-                <!-- Object 1 with Hiro marker -->
+                <!-- Shiba model with custom Shiba marker -->
                 <a-marker 
                     id="animated-marker"
                     type="pattern"
                     preset="custom"
-                    url="custom_markers/marker.patt"
+                    url="shiba.patt"
                     raycaster="objects: .clickable"
                     emitevents="true"
                     cursor="fuse: false; rayOrigin: mouse;"
-                    custom-marker
+                    custom-marker 
                 >
                     <a-entity 
                         gesture-handler
-                        gltf-model="https://cdn.glitch.global/03465d97-4e4d-4897-b8ce-06a67f9b63d2/gameready_gameboy_asset.glb?v=1698092177756"
-                        scale="2 2 2"
+                        gltf-model="https://cdn.glitch.global/3004748a-d850-4980-af7d-503b78977f93/low%20poly%20shiba%20and%20the%20house.glb?v=1698710570317"
+                        scale="4 4 4"
                         position="0 0.5 0">
+                        <a-sound src="barking.mp3" autoplay="true" loop="true"></a-sound>
                     </a-entity>
                 </a-marker>
 
-                <!-- Object 2 with Kanji marker -->
+                <!-- Object 2 with Kanji marker FOR TESTING -->
                 <a-marker preset="kanji">
                     <a-entity 
                         gesture-handler
@@ -63,28 +67,9 @@
                 <a-entity camera></a-entity>
 
             </a-scene>
-        </div>
-        
-        <script src="sketch.js"></script>
+        <!-- </div> -->
 
-        <script>
-            // Register a custom A-Frame component to handle marker detection
-            AFRAME.registerComponent('custom-marker', {
-              init: function () {
-                var el = this.el;
-                // This function will be called when the marker is found.
-                el.addEventListener('markerFound', function () {
-                  console.log('Custom marker found!');
-                  // Perform actions or animations here
-                });
-      
-                // This function will be called when the marker is lost.
-                el.addEventListener('markerLost', function () {
-                  console.log('Custom marker lost!');
-                  // Handle marker lost event
-                });
-              }
-            });
-          </script>
+        <!-- <script src="sketch.js"></script> -->
+        <script src="ar.js"></script>
     </body>
 </html>
