@@ -15,3 +15,9 @@ AFRAME.registerComponent('custom-marker', {
         });
     }
     });
+
+// Trigger audio playback when marker is detected
+marker.addEventListener('markerFound', function () {
+    var audioElement = document.getElementById('audioElement');
+    audioElement.play();
+  });
