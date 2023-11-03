@@ -19,10 +19,7 @@
     </head>
   
     <body style="margin: 0; overflow: hidden;"> <!-- hides overflowing content -->
-
-        <!-- <div id="p5_container"></div> -->
-
-        <!-- <div id="ar_container"> -->
+        
             <a-scene 
                 embedded 
                 arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" 
@@ -67,7 +64,11 @@
                 <a-entity camera></a-entity>
 
             </a-scene>
-        <!-- </div> -->
+
+        
+            <audio id="audioElement" preload="auto">
+                <source src="barking.mp3" type="audio/mpeg">
+            </audio>
 
         <!-- <script src="sketch.js"></script> -->
         <script src="ar.js"></script>
