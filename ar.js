@@ -16,12 +16,6 @@ AFRAME.registerComponent('animated-marker', {
     }
     });
 
-// Trigger audio playback when marker is detected
-marker.addEventListener('markerFound', function () {
-    var audioElement = document.getElementById('audioElement');
-    audioElement.play();
-  });
-
 // Add event listener for marker detection
 document.querySelector('a-marker[type="pattern"][url="shiba.patt"]').addEventListener('markerFound', function () {
     var audioElement = document.getElementById('audioElement');
