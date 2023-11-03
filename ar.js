@@ -1,5 +1,5 @@
 // Register a custom A-Frame component to handle marker detection
-AFRAME.registerComponent('custom-marker', {
+AFRAME.registerComponent('animated-marker', {
     init: function () {
         var el = this.el;
         // This function will be called when the marker is found.
