@@ -6,16 +6,3 @@ html, body {
 canvas {
     display: block;
 }
-
-#p5_container {
-    position: absolute;
-    top: 0; /* positioning p5 content at the top-left corner of its container */
-    left: 0;
-}
-  
-#ar_container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Ensure that AR content doesn't block p5.js interactions */
-  }
