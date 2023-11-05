@@ -16,7 +16,7 @@ AFRAME.registerComponent('animated-marker', {
     }
     });
 
-// Add event listener for marker detection
+// Add event listener for marker detection so that audio can be played
 document.querySelector('a-marker[type="pattern"][url="shiba.patt"]').addEventListener('markerFound', function () {
     var audioElement = document.getElementById('audioElement');
     audioElement.play();
