@@ -9,7 +9,7 @@ This is game 3 which displays a word on but outside the bounds of the phone scre
 
 This code uses the iOS sensor access code (with accompanying permissions.js file) shared by Nicholas Puckett in Creation & Computation, Digital Futures, M.Des, 2023-2025
  
-Help was taken from ChatGPT to debug problems and comment the code.
+Help was taken from ChatGPT to debug problems.
 */
 
 let isMobile = false;
